@@ -5,16 +5,16 @@ title: トップページ
 ---
 
 # Blender導入手順
-<!-- TOC -->
 
-- [Blender導入手順](#blender%E5%B0%8E%E5%85%A5%E6%89%8B%E9%A0%86)
-  - [目次](#%E7%9B%AE%E6%AC%A1)
-  - [インストール](#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
-  - [Blenderの日本語化](#blender%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8C%96)
-  - [コンソールの出し方、コンソールの日本語化](#%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E5%87%BA%E3%81%97%E6%96%B9%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8C%96)
-  - [提供したBlenderファイルを開く](#%E6%8F%90%E4%BE%9B%E3%81%97%E3%81%9Fblender%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%96%8B%E3%81%8F)
-  - [スクリプトを実行する](#%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B)
-  - [Tips](#tips)
+## 目次
+
+<!-- TOC -->
+- [インストール](#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
+- [Blenderの日本語化](#blender%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8C%96)
+- [コンソールの出し方、コンソールの日本語化](#%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E5%87%BA%E3%81%97%E6%96%B9%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8C%96)
+- [提供したBlenderファイルを開く](#%E6%8F%90%E4%BE%9B%E3%81%97%E3%81%9Fblender%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%96%8B%E3%81%8F)
+- [スクリプトを実行する](#%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B)
+- [Tips](#tips)
 
 <!-- /TOC -->
 ## インストール
@@ -23,11 +23,52 @@ title: トップページ
 <https://www.blender.org/download/releases/2-83/>
 
 上記リンクからBlender2.83LTSをインストール  
-最新バージョンは2.9だが互換性を保つためにこのバージョンで
+最新バージョンは2.9だが互換性を保つためにこのバージョンでインストールしてください  
 
 ## Blenderの日本語化
 
+BlenderはUI等が英語表記になっていますが、  
+日本語に変更もできます(英語のままでも問題ありません)  
+[こちらのページ](https://baku-blog.com/blender-japanese/)を参照してください
+
 ## コンソールの出し方、コンソールの日本語化
+
+スクリプトを実行した結果を表示できる**システムコンソール**があります
+
+- 表示方法(Windows)  
+ウインドウ-システムコンソール切り替えで表示できます  
+![sysconsole](img/sysconsole.png)  
+- 表示方法(Mac)  
+[こちら](http://dekapoppo.blogspot.com/2017/12/mac-blenderprint.html)を参照してください  
+
+システムコンソールは文字コードの関係？で、UIを日本語にしていた場合文字化けします  
+バッチファイルからBlenderを起動することで解消できます  
+下記はバッチファイルのコードです
+
+```
+@echo off
+rem 文字コードをUTF-8に設定
+chcp 65001
+
+rem バッチファイルから起動した場合
+@if "%1"=="" (
+D:
+cd "C:"/"Program Files"/"Blender Foundation"/"Blender 2.83"
+blender.exe
+)
+
+rem バッチファイルにBlenderファイルをドラッグ＆ドロップした場合
+set search=%~x1
+set blend=.blend
+
+@if %search%==%blend% (
+%1
+)
+```
+
+パス`"C:"/"Program Files"/"Blender Foundation"/"Blender 2.83"
+blender.exe`を、  
+自分のBlenderをインストールしたパスに変更してください  
 
 ## 提供したBlenderファイルを開く
 
