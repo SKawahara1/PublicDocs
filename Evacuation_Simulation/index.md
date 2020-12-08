@@ -118,12 +118,6 @@ linear-gradientで設定できる
 
 ##### sections/header.liquid
 
-```html
-  {% if customer.last_name != blank %}
-      {% capture last_name %}<a href="{{ routes.account_url }}">{{ customer.last_name }}</a>{% endcapture %}
-      {{ 'layout.customer.logged_in_as_html' | t: last_name: last_name }}
-```
-
 # 住所入力フォームの順番を入れ替える
 
 「新しい住所を追加する」場合、liquidファイルの該当箇所は
@@ -132,7 +126,6 @@ linear-gradientで設定できる
 
 ```html
 <div id="AddressNewForm" class="form-address form-vertical hide">
-  {% form 'customer_address', customer.new_address %}
     <div class="grid"></div>
     <div class="grid"></div>
     .
@@ -175,7 +168,6 @@ templates/customers/addresses.liquidの19～89行目を消し、下のコード�
 ```html
 <div id="AddressNewForm" class="form-address form-vertical hide">
 
-  {% form 'customer_address', customer.new_address %}
 
     <div class="grid">
 
@@ -201,13 +193,13 @@ templates/customers/addresses.liquidの19～89行目を消し、下のコード�
       <div class="grid__item hide">
         <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
         <select id="AddressCountryNew" name="address[country]" data-default="{{ form.country }}">{{ all_country_option_tags }}</select>
-        {% comment %} <input type="text" id="AddressCountryNew" name="address[country]" value="{{ form.country }}" autocapitalize="words"> {% endcomment %}
+
       </div>
 
       <div class="grid__item" id="AddressProvinceContainerNew">
         <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
         <select id="AddressProvinceNew" name="address[province]" data-default="{{ form.province }}"></select>
-        {% comment %} <input type="text" id="AddressProvinceNew" name="address[province]" value="{{ form.province }}" autocapitalize="words"> {% endcomment %}
+
       </div>
       <div class="grid__item">
         <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
@@ -244,7 +236,7 @@ templates/customers/addresses.liquidの19～89行目を消し、下のコード�
     <p><input type="submit" class="btn" value="{{ 'customer.addresses.add' | t }}"></p>
     <p><button type="button" class="btn--link address-new-toggle">{{ 'customer.addresses.cancel' | t }}</button></p>
 
-  {% endform %}
+
 </div>
 
 ```
@@ -366,9 +358,7 @@ htmlのinput要素にplaceholder属性を追加すると初期値を設定でき
 ```html
 <div id="AddressNewForm" class="form-address form-vertical hide">
 
-  {% form 'customer_address', customer.new_address %}
-      ...(略)
-  {% endform %}
+
 </div>
 ```
 
@@ -377,7 +367,7 @@ htmlのinput要素にplaceholder属性を追加すると初期値を設定でき
 ```html
 <div id="AddressNewForm" class="form-address form-vertical hide">
 
-  {% form 'customer_address', customer.new_address %}
+
 
     <div class="grid">
 
@@ -404,13 +394,12 @@ htmlのinput要素にplaceholder属性を追加すると初期値を設定でき
       <div class="grid__item hide">
         <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
         <select id="AddressCountryNew" name="address[country]" data-default="{{ form.country }}">{{ all_country_option_tags }}</select>
-        {% comment %} <input type="text" id="AddressCountryNew" name="address[country]" value="{{ form.country }}" autocapitalize="words"> {% endcomment %}
+
       </div>
 
       <div class="grid__item" id="AddressProvinceContainerNew">
         <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
         <select id="AddressProvinceNew" name="address[province]" data-default="{{ form.province }}"></select>
-        {% comment %} <input type="text" id="AddressProvinceNew" name="address[province]" value="{{ form.province }}" autocapitalize="words"> {% endcomment %}
       </div>
       <div class="grid__item">
         <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
@@ -447,7 +436,7 @@ htmlのinput要素にplaceholder属性を追加すると初期値を設定でき
     <p><input type="submit" class="btn" value="{{ 'customer.addresses.add' | t }}"></p>
     <p><button type="button" class="btn--link address-new-toggle">{{ 'customer.addresses.cancel' | t }}</button></p>
 
-  {% endform %}
+
 </div>
 ```
 
