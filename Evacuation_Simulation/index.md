@@ -75,21 +75,35 @@ Slackに上げたBlenderファイルを開いてください
 
 ## スクリプトを実行する
 
+レイアウト選択でScriptタブを選ぶと、スクリプト実行用のUIに切り替わります
+![scriptUI](img/scriptUI.png)  
+<br>
 避難シミュレーションをするのに必要なpythonスクリプトは提供したBlenderファイルに内蔵されています  
 スクリプトファイルを読み込む必要はありません  
 pythonスクリプトは3つあり、Import_CSVとInstance_Characterの2つを使用します  
 下記画像のようにコードを切り替えられます  
-![InnerPyCode](img/InnerPyCode.png)
+![InnerPyCode](img/InnerPyCode.png)  
+<br>  
 下記のボタンでスクリプトを実行します  
+僕の[GitHub](https://github.com/SKawahara1/Evacuation_Simulation)にpythonスクリプトのオリジナルがあり、  
+コードを更新するときはファイルをダウンロードして開いてください
 ![scriptRunOpen](img/scriptRunOpen.png)
-僕の[GitHub](https://github.com/SKawahara1/Evacuation_Simulation)にpythonスクリプトのオリジナルがあり、コードを更新するときはファイルをダウンロードして開いてください
 
 ### スクリプト｜Instance_Character
 
-レイアウト選択でScript
-生成する数を指定し、Instance_Character実行
-コンソールで進行状況を確認
-指定回数生成できたことを確認
+CSVファイルをインポートする元となるキャラクターを生成します
+
+- 生成する数を指定し、Instance_Character実行
+![Instance](img/Instance.png)  
+
+- コンソールで進行状況を確認
+生成数が多いと時間がかかります  
+この間はBlenderを操作しないでください(フリーズする場合があります)  
+システムコンソールで進行状況を確認できます  
+![progressbar](img/progressbar.png)  
+
+プログレスバーが100%になると生成完了です  
+指定数分生成できたことを確認してください  
 
 ### スクリプト｜Import_CSV
 
