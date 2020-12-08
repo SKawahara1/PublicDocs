@@ -1,3 +1,8 @@
+---
+layout: default
+title: トップページ
+---
+
 # Google Fonts (Noto Sans JP)を使用する方法
 
 参照: <https://note.com/gooddoctor/n/nce84b2ef484d>
