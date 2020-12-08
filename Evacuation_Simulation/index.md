@@ -19,7 +19,7 @@ title: トップページ
 <!-- /TOC -->
 ## インストール
 
-![install](/img/install.png)  
+![install](img/install.png)  
 <https://www.blender.org/download/releases/2-83/>
 
 上記リンクからBlender2.83LTSをインストール  
