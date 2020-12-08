@@ -29,14 +29,14 @@ title: トップページ
 
 BlenderはUI等が英語表記になっていますが、  
 日本語に変更もできます(英語のままでも問題ありません)  
-[こちらのページ](https://baku-blog.com/blender-japanese/)を参照してください
+変更方法は[こちらのページ](https://baku-blog.com/blender-japanese/)を参照してください
 
 ## コンソールの出し方、コンソールの日本語化
 
 スクリプトを実行した結果を表示できる**システムコンソール**があります
 
 - 表示方法(Windows)  
-ウインドウ-システムコンソール切り替えで表示できます  
+**ウインドウ-システムコンソール切り替え**で表示できます  
 ![sysconsole](img/sysconsole.png)  
 - 表示方法(Mac)  
 [こちら](http://dekapoppo.blogspot.com/2017/12/mac-blenderprint.html)を参照してください  
@@ -66,16 +66,23 @@ set blend=.blend
 )
 ```
 
-パス`"C:"/"Program Files"/"Blender Foundation"/"Blender 2.83"
-blender.exe`を、  
-自分のBlenderをインストールしたパスに変更してください  
+`"C:"/"Program Files"/"Blender Foundation"/"Blender 2.83"`を、  
+自分のblender.exeのあるディレクトリのパスに変更してください  
 
 ## 提供したBlenderファイルを開く
 
+Slackに上げたBlenderファイルを開いてください  
+
 ## スクリプトを実行する
 
-スクリプトは提供したBlenderファイルに内蔵されている
-GitHubにオリジナルがあり、更新するときはこうやってください
+避難シミュレーションをするのに必要なpythonスクリプトは提供したBlenderファイルに内蔵されています  
+スクリプトファイルを読み込む必要はありません  
+pythonスクリプトは3つあり、Import_CSVとInstance_Characterの2つを使用します  
+下記画像のようにコードを切り替えられます  
+![InnerPyCode](img/InnerPyCode.png)
+下記のボタンでスクリプトを実行します  
+![scriptRunOpen](img/scriptRunOpen.png)
+僕の[GitHub](https://github.com/SKawahara1/Evacuation_Simulation)にpythonスクリプトのオリジナルがあり、コードを更新するときはファイルをダウンロードして開いてください
 
 ### スクリプト｜Instance_Character
 
