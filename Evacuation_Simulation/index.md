@@ -79,14 +79,17 @@ Slackに上げたBlenderファイルを開いてください
 ![scriptUI](img/scriptUI.png)  
 <br>
 避難シミュレーションをするのに必要なpythonスクリプトは提供したBlenderファイルに内蔵されています  
-スクリプトファイルを読み込む必要はありません  
+**スクリプトファイルを読み込む必要はありません**  
+
 pythonスクリプトは3つあり、**Import_CSV**と**Instance_Character**の2つを使用します  
+
 下記画像のようにコードを切り替えられます  
+
 ![InnerPyCode](img/InnerPyCode.png)  
 <br>  
 下記のボタンでスクリプトを実行します  
 僕の[GitHub](https://github.com/SKawahara1/Evacuation_Simulation)にpythonスクリプトのオリジナルがあり、  
-コードを更新するときはファイルをダウンロードして開いてください
+コードを更新するときはGitHubからファイルをダウンロードして開いてください
 ![scriptRunOpen](img/scriptRunOpen.png)
 
 ### スクリプト｜Instance_Character
@@ -110,111 +113,31 @@ CSVファイルをインポートする元となるキャラクターを生成�
 
 ### スクリプト｜Import_CSV
 
-- csvファイルをエディタで開き、"Cube"を"Character"に全置換、文字コードShiftJSで保存  
+- **csvファイルをエディタで開く**  
+"Cube"を"Character"に全置換、文字コードShiftJSで保存  
 
-- Import_CSVでcsvファイルのパスを指定して実行  
-下の方にキーフレームが現れれば成功
+- **Import_CSVでcsvファイルのパスを指定して実行**  
+下記のようにImport_CSVスクリプトを実行してください  
+![importcsv1](img/importcsv1.png)  
 
-- Spaceキーでアニメーションを開始する
+マウスカーソルが読込中の表示になり、読み込みが完了したら成功です
+
+- **Spaceキー**でアニメーションを開始できます
 
 ## Tips
 
 ### 視点操作方法、平行投影方法
 
+[こちら](https://vtuberkaibougaku.site/2020/08/18/blender-viewpoint/)を参照してください  
+`テンキー５`でパースを透視/平行に切り替えられます
+
 ### アニメーションを最初から開始する
+
+`Shift+矢印キー←`でアニメーションを最初から開始できます
 
 ### 上のタブの意味
 
-### スクリプトの更新方法
+上にあるタブでBlenderの機能にあったUIに切り替えられます  
+アニメーションの確認はLayoutタブが向いています  
 
-**layout/theme.liquid**の<head>タグ内にFontリンクを貼る
-
-**assets/theme.scss.liquid** のプロパティ
-
-- \$font-stack-header
-- \$font-stack-body
-- \$font-stack-cart-notification
-
-でフォント値を**Noto Sans JP**と**sans-serif**にする
-sans-serifのところ表示不可を回避するためのセーフフォントであれば何でも良い
-
-# スライドバーの幅を伸ばす
-
-CSSのGrid Layoutを使ってページ幅を分割し、レイアウトしている
-この比率を変えてやれば幅を伸ばせる
-
-**theme.scss.liquid**の1292行目～でクラスが定義されてる
-
-```scss
-  .#{$grid-breakpoint-type}one-third { width: percentage(1 / 3); }
-  .#{$grid-breakpoint-type}two-thirds { width: percentage(2 / 3); }
-```
-
-<!-- ![a](https://imgur.com/2C90VMy.png) -->
-テーマ設定→色
-
-&darr;
-
-<!-- ![a](https://i.imgur.com/PoTqnwH.png) -->
-フォームフィールドの背景
-
-**フォームの枠線**は、
-
-#### assets/theme.scss.liquid 2639-2650line
-
-```css
-.form-vertical {
-  input,
-  select,
-  textarea {
-    display: block;
-    margin-bottom: $padding-form;
-    min-width: 300px;
-
-    @include media-query($small) {
-      width: 100%;
-    }
-  }
-```
-
-`min-width:300px;`の下の行に`border: 1px solid #000;`を挿入すれば枠線が表示される
-枠線のスタイルを変更したいときは[こちら](https://techacademy.jp/magazine/8626)を参照
-
-# 住所入力フォーム(テキスト入力タイプ)にグレー文字の初期値を設定する
-
-htmlのinput要素にplaceholder属性を追加すると初期値を設定できる [こちらを参照](https://weback.net/htmlcss/1284/)
-**注意:** placeholderで初期値を設定できるのはテキスト入力の項目のみで、都道府県項目のように選択タイプだと設定できない
-選択タイプの設定方法は次に説明する
-
-#### templates/customers/address.liquid 19-89line
-
-```html
-<div id="AddressNewForm" class="form-address form-vertical hide">
-
-
-</div>
-```
-
-の所を以下のコードに置き換えれば設定できる
-
-`selectInitialProvince('Kyōto');`で引数に京都を設定し、実行する  
-`Kyoto`ではなく`Kyōto`なことに注意  
-
-# 住所入力フィールドのラベルを変更する
-
-#### locales/ja.json 153-154line
-
-```json
-  "address1": "住所",
-  "address2": "住所",
-```
-
-を
-
-```json
-  "address1": "地名\/番地",
-  "address2": "建物名\/部屋番号",
-```
-
-に変更する  
-`"地名\/番地",`の`\`はjsonファイルにおける[/(スラッシュ)文字のエスケープ処理](https://www.ipentec.com/document/json-character-escape)
+![switchui](img/switchui.png)  
