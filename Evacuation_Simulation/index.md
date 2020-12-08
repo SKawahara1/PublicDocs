@@ -80,7 +80,7 @@ Slackに上げたBlenderファイルを開いてください
 <br>
 避難シミュレーションをするのに必要なpythonスクリプトは提供したBlenderファイルに内蔵されています  
 スクリプトファイルを読み込む必要はありません  
-pythonスクリプトは3つあり、Import_CSVとInstance_Characterの2つを使用します  
+pythonスクリプトは3つあり、**Import_CSV**と**Instance_Character**の2つを使用します  
 下記画像のようにコードを切り替えられます  
 ![InnerPyCode](img/InnerPyCode.png)  
 <br>  
@@ -93,24 +93,29 @@ pythonスクリプトは3つあり、Import_CSVとInstance_Characterの2つを�
 
 CSVファイルをインポートする元となるキャラクターを生成します
 
-- 生成する数を指定し、Instance_Character実行
+- **生成する数を指定し、Instance_Character実行**
 ![Instance](img/Instance.png)  
 
-- コンソールで進行状況を確認
+- **コンソールで進行状況を確認**  
 生成数が多いと時間がかかります  
 この間はBlenderを操作しないでください(フリーズする場合があります)  
 システムコンソールで進行状況を確認できます  
 ![progressbar](img/progressbar.png)  
 
 プログレスバーが100%になると生成完了です  
-指定数分生成できたことを確認してください  
+以下のように指定数分生成できたことを確認してください  
+![Characters1](img/Characters1.png)  
+<br>
+![Characters2](img/Characters2.png)  
 
 ### スクリプト｜Import_CSV
 
-csvを開き、"Cube"を"Character"に置換、ShiftJSで保存
-Import_CSVで先のcsvファイルのパスを指定して実行
+- csvファイルをエディタで開き、"Cube"を"Character"に全置換、文字コードShiftJSで保存  
+
+- Import_CSVでcsvファイルのパスを指定して実行  
 下の方にキーフレームが現れれば成功
-Spaceキーでアニメーションを開始する
+
+- Spaceキーでアニメーションを開始する
 
 ## Tips
 
